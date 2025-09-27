@@ -1,8 +1,10 @@
+import Header from "@/components/Header";
+
 const Index = () => {
     return (
         <main className="min-h-screen bg-background">
             <div className="relative z-10">
-                Header
+                <Header />
                 {/* <Header /> */}
 
                 <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 p-6 h-full">
