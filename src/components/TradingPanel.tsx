@@ -5,6 +5,13 @@ import { useCallback, useMemo, useState } from "react";
 import { formatUnits, parseUnits } from "viem";
 import { contracts } from "@/lib/contracts";
 import { RefreshCw } from "lucide-react";
+import {
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "./ui/card";
 
 const TradingPanel = () => {
     const [margin, setMargin] = useState<string>("100");
@@ -106,64 +113,63 @@ const TradingPanel = () => {
     };
 
     return (
-        <>
-            <div className="space-y-6">
-                <div className="glass-panel p-6 space-y-4">
-                    <div className="flex justify-between items-center">
-                        <h3 className="text-lg font-semibold">
-                            {tradingMode} Account
-                        </h3>
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={handleRefetchAll}
-                            disabled={isRefetching}
-                            className="text-muted-foreground hover:text-primary"
-                        >
-                            <RefreshCw
-                                className={`w-4 h-4 ${isRefetching ? "animate-spin" : ""}`}
-                            />
-                        </Button>
-                    </div>
+        <div className="space-y-6">
+            <Card>
+                <CardHeader className="flex flex-row items-center justify-between">
+                    <CardTitle className="text-lg font-semibold">
+                        {tradingMode} Account
+                    </CardTitle>
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={handleRefetchAll}
+                        disabled={isRefetching}
+                        className="text-muted-foreground hover:text-primary"
+                    >
+                        <RefreshCw
+                            className={`h-4 w-4 ${isRefetching ? "animate-spin" : ""}`}
+                        />
+                    </Button>
+                </CardHeader>
 
-                    <div className="space-y-3">
-                        <div className="flex justify-between items-center">
-                            <span className="text-muted-foreground">
-                                {isPrivateMode
-                                    ? "Private Balance:"
-                                    : "Wallet (USDC):"}
-                            </span>
-                            <span className="font-mono text-lg">
-                                {formattedWalletBalance}
-                            </span>
-                        </div>
-                        <div className="flex justify-between items-center">
-                            <span className="text-muted-foreground">
-                                Free Collateral:
-                            </span>
-                            <span className="font-mono text-lg text-success">
-                                {formattedFreeCollateral}
-                            </span>
-                        </div>
+                <CardContent className="space-y-3">
+                    <div className="flex justify-between">
+                        <span className="text-muted-foreground">
+                            {isPrivateMode
+                                ? "Private Balance"
+                                : "Wallet (USDC)"}
+                        </span>
+                        <span className="font-mono text-lg">
+                            {formattedWalletBalance}
+                        </span>
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
-                        <Button
-                            onClick={() => handleOpenModal("deposit")}
-                            disabled={!isConnected}
-                        >
-                            Deposit
-                        </Button>
-                        <Button
-                            variant="outline"
-                            onClick={() => handleOpenModal("withdraw")}
-                            disabled={!isConnected}
-                        >
-                            Withdraw
-                        </Button>
+                    <div className="flex justify-between">
+                        <span className="text-muted-foreground">
+                            Free Collateral
+                        </span>
+                        <span className="font-mono text-lg text-success">
+                            {formattedFreeCollateral}
+                        </span>
                     </div>
-                </div>
-            </div>
-        </>
+                </CardContent>
+
+                <CardFooter className="grid grid-cols-2 gap-3">
+                    <Button
+                        onClick={() => handleOpenModal("deposit")}
+                        disabled={!isConnected}
+                    >
+                        Deposit
+                    </Button>
+                    <Button
+                        variant="outline"
+                        onClick={() => handleOpenModal("withdraw")}
+                        disabled={!isConnected}
+                    >
+                        Withdraw
+                    </Button>
+                </CardFooter>
+            </Card>
+        </div>
     );
 };
 

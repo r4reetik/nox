@@ -33,7 +33,7 @@ const Header = () => {
             <div className="flex h-16 items-center justify-between px-6">
                 <div className="flex items-center gap-3">
                     <div className="text-2xl font-bold">
-                        <span className="text-primary">NOX</span>
+                        <span className="text-primary">nox</span>
                     </div>
                 </div>
 
