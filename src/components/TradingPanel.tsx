@@ -12,6 +12,7 @@ import {
     CardHeader,
     CardTitle,
 } from "./ui/card";
+import { CollateralModal } from "./CollateralModal";
 
 const TradingPanel = () => {
     const [margin, setMargin] = useState<string>("100");
@@ -169,6 +170,12 @@ const TradingPanel = () => {
                     </Button>
                 </CardFooter>
             </Card>
+            <CollateralModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                type={modalType}
+                onSuccess={handleRefetchAll}
+            />
         </div>
     );
 };
