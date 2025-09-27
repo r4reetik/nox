@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import TradingPanel from "@/components/TradingPanel";
 
 const Index = () => {
     return (
@@ -18,7 +19,9 @@ const Index = () => {
                     </div>
 
                     {/* Right Column - Trading Panel */}
-                    <div className="lg:col-span-3">TradingPanel</div>
+                    <div className="lg:col-span-3">
+                        <TradingPanel />
+                    </div>
                 </div>
             </div>
         </main>

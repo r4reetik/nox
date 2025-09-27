@@ -6,14 +6,14 @@ import { Button } from "./components/ui/button";
 
 function App() {
     return (
-        < BrowserRouter >
+        <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Index />} />
                 {/* <Route path="/explorer" element={<ExplorerPage />} /> */}
                 {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
-        </BrowserRouter >
-    )
+        </BrowserRouter>
+    );
 }
 
 export default App;
