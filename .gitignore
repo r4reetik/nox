@@ -1,3 +1,8 @@
 # Noir builds
 circuits/**/target/
 circuits/target/
+*node_modules*
+*target*
+.env
+backend/darkpool_db/
+
