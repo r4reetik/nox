@@ -3,7 +3,7 @@ import TradingPanel from "@/components/TradingPanel";
 
 const Index = () => {
     return (
-        <main className="min-h-screen bg-background">
+        <main className="min-h-screen bg-background font-geistmono">
             <div className="relative z-10">
                 <Header />
                 {/* <Header /> */}
