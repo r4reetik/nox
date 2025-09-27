@@ -1,0 +1,5 @@
+/no-commit
+*node_modules*
+*target*
+.env
+backend/darkpool_db/
