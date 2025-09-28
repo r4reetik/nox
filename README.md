@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/r4reetik/nox">
-    <img src="assets/logo.png" alt="Logo" height="96">
+    <img src="assets/logo.png" alt="Logo" height="192">
   </a>
 
   <p align="center">
