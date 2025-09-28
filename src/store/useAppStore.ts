@@ -29,7 +29,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     },
     initializeUserClient: async (signerAddress, signMessageAsync) => {
         if (!signerAddress) return;
-
+        
         set({ isLoadingClient: true });
         console.log("Initializing UserClient...");
 
@@ -55,4 +55,3 @@ export const useAppStore = create<AppState>((set, get) => ({
 
 
 export const useAppActions = () => useAppStore((state) => state.actions);
-
