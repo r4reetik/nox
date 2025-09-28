@@ -1,4 +1,4 @@
-import type {
+import {
     ApiNote,
     ApiPosition,
     HistoricalPosition,
@@ -8,7 +8,9 @@ import type {
 } from "@/lib/types";
 import axios from "axios";
 
-const INDEXER_API_URL = import.meta.env.VITE_INDEXER_API_URL;
+// const INDEXER_API_URL = import.meta.env.VITE_INDEXER_API_URL || "https://indexer-server-production-b55a.up.railway.app";
+const INDEXER_API_URL =
+    import.meta.env.VITE_INDEXER_API_URL || "http://localhost:3000";
 
 const apiClient = axios.create({
     baseURL: INDEXER_API_URL,
