@@ -44,6 +44,12 @@
 
 Nox is a privacy-preserving perpetuals protocol that lets users manage collateral and trade via a dark pool using zero-knowledge proofs. Users create private notes (commitments) inside the dark pool and can bridge liquidity to a minimal perpetuals DEX through a `PrivacyProxy` that holds positions publicly while preserving the user's private identity through signatures derived from a locally generated secret.
 
+## Flow
+
+<div align="center">
+  <img src="assets/flow_chart.svg" alt="Flow chart" width="100%" />
+</div>
+
 Nox operates on three layers:
 
 1. Smart contracts (dark pool + proxy + minimal perp DEX):
@@ -65,12 +71,6 @@ Deployed Contract links:
 - Dev/local-first; configure chain addresses in `frontend/src/lib/contracts.ts` and backend env. Example `ignition/deployments` folder contains deployment artifacts for chain 5115.
 
 <p align="right">(<a href="#table-of-contents">back to top</a>)</p>
-
-# Flow
-
-<div align="center">
-  <img src="assets/flow_chart.svg" alt="Flow chart" width="100%" />
-</div>
 
 # Screenshots
 
