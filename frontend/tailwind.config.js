@@ -14,6 +14,9 @@ export default {
             },
         },
         extend: {
+            fontFamily: {
+                geistmono: ["Geist Mono", "monospace"],
+            },
             colors: {
                 border: "var(--border)",
                 input: "var(--input)",

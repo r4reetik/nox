@@ -1,6 +1,6 @@
 import { ethers, Wallet } from "ethers";
 import { apiService } from "@/services/apiService";
-import type { UserMetadata } from "./types";
+import { UserMetadata } from "./types";
 import { toast } from "sonner";
 import { poseidon2Hash } from "@aztec/foundation/crypto";
 import { Fr } from "@aztec/foundation/fields";
@@ -44,7 +44,7 @@ export class UserClient {
 
         try {
             const signature = await signMessage({
-                message: "nox login secret",
+                message: "DarkPerps Login Secret v1.6",
             });
             const privateKey = ethers.keccak256(signature);
             const client = new UserClient(signerAddress, privateKey);

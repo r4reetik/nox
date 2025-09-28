@@ -23,7 +23,7 @@ export const CustomConnectButton = () => {
             {(() => {
               if (!connected) {
                 return (
-                  <Button onClick={openConnectModal} className="gap-2">
+                  <Button onClick={openConnectModal} variant="neon" className="gap-2">
                     <Wallet className="w-4 h-4" />
                     Connect Wallet
                   </Button>
@@ -69,4 +69,3 @@ export const CustomConnectButton = () => {
     </ConnectButton.Custom>
   );
 };
-
