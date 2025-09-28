@@ -66,6 +66,12 @@ Deployed Contract links:
 
 <p align="right">(<a href="#table-of-contents">back to top</a>)</p>
 
+# Flow
+
+<div align="center">
+  <img src="assets/flow_chart.svg" alt="Flow chart" width="100%" />
+</div>
+
 # Screenshots
 
 <p float="left">
