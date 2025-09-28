@@ -1,3 +1,4 @@
+
 import { CustomConnectButton } from "./CustomConnectButton";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
@@ -5,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { useAppStore, useAppActions, TradingMode } from "@/store/useAppStore";
 import { useAccount, useSignMessage, useChainId, useSwitchChain } from "wagmi";
 import { AlertTriangle } from "lucide-react";
+
 import { AppChain } from "@/lib/contracts";
 
 const Header = () => {

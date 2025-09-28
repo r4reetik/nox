@@ -1,0 +1,48 @@
+{
+  "name": "hardhat-project",
+  "version": "1.0.0",
+  "description": "Dark Dex Contracts",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "coverage": "hardhat coverage",
+    "deploy:local": "",
+    "node": "hardhat node",
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@aztec/foundation": "^0.87.8",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.9",
+    "@nomicfoundation/hardhat-ignition": "^0.15.11",
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@nomicfoundation/ignition-core": "^0.15.11",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/chai": "^5.2.2",
+    "@types/mocha": ">=9.1.0",
+    "chai": "^5.2.0",
+    "dotenv": "^17.0.0",
+    "hardhat": "^2.24.3",
+    "hardhat-deploy": "^1.0.3",
+    "hardhat-gas-reporter": "^2.3.0",
+    "mocha": "^11.7.0",
+    "solidity-coverage": "^0.8.16",
+    "ts-node": "^10.9.2",
+    "typechain": "^8.3.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@aztec/bb.js": "^0.87.9",
+    "@noir-lang/noir_js": "^1.0.0-beta.7",
+    "@openzeppelin/contracts": "^5.3.0",
+    "axios": "^1.10.0",
+    "ethers": "^6.15.0"
+  }
+}
