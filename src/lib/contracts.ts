@@ -11,6 +11,7 @@ import {
     scrollSepolia,
 } from "viem/chains";
 
+
 // opBNBTestnet
 const USDC_ADDRESS = "0xdF5A95A3A9870353839d62f984e55c9F162f26bA" as const;
 const ORACLE_ADDRESS = "0xEBa6bB8E72D43Bfa864bcE2B0F57Cfbd9C03009f" as const;
