@@ -20,8 +20,14 @@ import {
 import { readContract } from "wagmi/actions";
 import { config } from "@/main";
 import { AppChain, contracts } from "@/lib/contracts";
-import { parseUnits, maxUint256, getAddress, formatUnits, toHex } from "viem";
-import type { Hex } from "viem";
+import {
+    parseUnits,
+    maxUint256,
+    Hex,
+    getAddress,
+    formatUnits,
+    toHex,
+} from "viem";
 import { toast } from "sonner";
 import { useAppStore, useAppActions } from "@/store/useAppStore";
 import { ethers, EventLog } from "ethers";
@@ -131,8 +137,12 @@ export const CollateralModal = ({
                             account: address!,
                         });
                     } else {
+                        // Private Deposit from Dark Pool (ZK Flow)
                         if (privateBalance < amountAsBigInt)
                             return toast.error("Insufficient private balance.");
+                        // const toastId = toast.loading("Preparing private deposit...", {
+                        //   duration: 3000,
+                        // });
                         setIsGeneratingProof(true);
                         const currentCommitment =
                             userClient!.getCommitmentInfo();
@@ -196,6 +206,7 @@ export const CollateralModal = ({
                         );
                     }
                 } else {
+                    // Public Deposit
                     writeContract(
                         {
                             ...contracts.clearingHouse,
@@ -213,7 +224,9 @@ export const CollateralModal = ({
                     );
                 }
             } else {
+                // --- WITHDRAW LOGIC ---
                 if (isPrivateMode) {
+                    // Private Withdraw to Dark Pool (Signature Flow)
                     const msgHash = ethers.solidityPackedKeccak256(
                         ["string", "uint256", "bytes32"],
                         [
@@ -269,9 +282,11 @@ export const CollateralModal = ({
             setIsGeneratingProof(false);
             toast.error("Operation Failed", { description: error.message });
             console.log("tx withdraw error", error);
+            // if (source === "darkPool") userClient?.rollbackNonce(1);
         }
     };
 
+    // --- Transaction Outcome Effect ---
     useEffect(() => {
         if (isConfirmed && receipt) {
             if (needsApproval) {
@@ -290,6 +305,7 @@ export const CollateralModal = ({
                                 )
                     ) as EventLog | undefined;
                     if (dpEvent) {
+                        // Update commitment with remaining balance
                         const tokenPoolInterface = new ethers.Interface(
                             contracts.tokenPool.abi
                         );
@@ -323,9 +339,9 @@ export const CollateralModal = ({
         <>
             <ProofGenerationLoader isActive={isGeneratingProof} />
             <Dialog open={isOpen} onOpenChange={onClose}>
-                <DialogContent className="sm:max-w-md glass-panel font-geistmono">
+                <DialogContent className="sm:max-w-md glass-panel">
                     <DialogHeader>
-                        <DialogTitle className="text-glow">
+                        <DialogTitle className="">
                             {type === "deposit" ? "Deposit" : "Withdraw"}{" "}
                             Collateral
                         </DialogTitle>
@@ -388,6 +404,7 @@ export const CollateralModal = ({
                         </Button>
                         {needsApproval ? (
                             <Button
+                                variant="neon"
                                 onClick={handleApprove}
                                 disabled={isLoading}
                             >
@@ -395,6 +412,7 @@ export const CollateralModal = ({
                             </Button>
                         ) : (
                             <Button
+                                variant="neon"
                                 onClick={handleConfirm}
                                 disabled={
                                     isLoading ||
@@ -404,7 +422,10 @@ export const CollateralModal = ({
                             >
                                 {isLoading
                                     ? "Processing..."
-                                    : `Confirm ${type.charAt(0).toUpperCase() + type.slice(1)}`}
+                                    : `Confirm ${
+                                          type.charAt(0).toUpperCase() +
+                                          type.slice(1)
+                                      }`}
                             </Button>
                         )}
                     </DialogFooter>
